@@ -66,9 +66,24 @@ namespace Cocktails
         {
             using (var ctx = new CocktailContext())
             {
-                var dri = new Drink() { Name = name, Ingredients = ingredients, MixAndGarnish = mixAndGarnish };
+                Drink dri = new Drink() { Name = name, Ingredients = ingredients, MixAndGarnish = mixAndGarnish };
 
                 ctx.Drinks.Add(dri);
+                ctx.SaveChanges();
+            }
+        }
+        /// <summary>
+        /// Takes in a parameter of what drink you want removed,
+        /// then gets drink where the name of the drink you want removed is the same as one in the Db,
+        /// then if it is, it will remove it from context/db and then save the changes made/update db.
+        /// </summary>
+        /// <param name="drinkRemove">string of the name of the drink you want to remove</param>
+        public void DeleteDrink(string drinkRemove)
+        {
+            using (var ctx = new CocktailContext())
+            {
+                IQueryable<Drink> drinkToRemove = ctx.Drinks.Where(e => e.Name.Equals(drinkRemove)).Include(e => e.Ingredients);
+                ctx.Drinks.Remove(drinkToRemove.FirstOrDefault());
                 ctx.SaveChanges();
             }
         }

@@ -39,8 +39,8 @@ namespace Cocktails
             {
                 case ConsoleKey.D1:
                     Console.WriteLine("What drink would you like?:");
-                    string choice = Console.ReadLine();
-                    var chosenDrink = dalmanager.GetDrink(choice);
+                    string drinkToGet = Console.ReadLine();
+                    var chosenDrink = dalmanager.GetDrink(drinkToGet);
                     foreach (var drink in chosenDrink)
                     {
                         Console.Clear();
@@ -52,6 +52,11 @@ namespace Cocktails
                         }
                         Console.WriteLine("\nRecipe:"+drink.MixAndGarnish);
                     }
+                    break;
+                case ConsoleKey.D2:
+                    Console.WriteLine("Which drink would you like to remove?:");
+                    string drinkToRemove = Console.ReadLine();
+                    dalmanager.DeleteDrink(drinkToRemove);
                     break;
                 default:
                     break;
