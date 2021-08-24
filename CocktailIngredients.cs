@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cocktails
 {
-    public class Drink
+    public class CocktailIngredients
     {
         [Key]
-        public int DrinkID { get; set; }
+        public int IngredientID { get; set; }
         public string Name { get; set; }
-        public List<CocktailIngredients> Ingredients { get; set; }
-        public string MixAndGarnish { get; set; }
-        
     }
 }

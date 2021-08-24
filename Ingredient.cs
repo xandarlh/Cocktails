@@ -12,6 +12,5 @@ namespace Cocktails
         [Key]
         public int IngredientID { get; set; }
         public string Name { get; set; }
-        public ICollection<Drink> Drinks { get; set; }
     }
 }
