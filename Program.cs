@@ -13,27 +13,12 @@ namespace Cocktails
         {
 
             Dalmanager dalmanager = new Dalmanager();
-            /*
-            using (var ctx = new CocktailContext())
-            {
-                var test = ctx.Drinks.Where(e => e.Name.Equals("Ny drink2")).Include(e => e.Ingredients).ToList();
-                var stud = new Ingredient() { Name = "Rum" };
-                ctx.Ingredients.Add(stud);
-                ctx.SaveChanges();
-            }
-            */
-            //dalmanager.CreateDrink("Ny drink2",new List<Test>(){new Test(){Name="Vodka"},new Test(){Name="Rum"}} , "Hello");
-            /*
-            var drinks = dalmanager.GetAllDrinks();
-            foreach (var item in drinks)
-            {
-                Console.WriteLine(item.Name);
-            }
-            */
-            //dalmanager.PopulateDB();
+            
+            //only Mai tai and Margarita has been created
+            dalmanager.PopulateDB();
             Console.WriteLine("Choose:");
             Console.WriteLine("1} Get a drink");
-            Console.WriteLine("2} ");
+            Console.WriteLine("2} Delete drink");
             var radnom = Console.ReadKey();
             switch (radnom.Key)
             {
