@@ -97,6 +97,7 @@ namespace Cocktails
         {
             using (var ctx = new CocktailContext())
             {
+                //Clears the database before its generated again.
                 ctx.Database.Delete();
                 var ing1 = new Ingredient() { Name = "Tequila" };
                 var ing2 = new Ingredient() { Name = "Dark rum" };
